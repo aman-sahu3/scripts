@@ -3,7 +3,7 @@
 
 cpu_limit=50
 mem_limit=800
-email_address="steveettruth@gmail.com"
+email_address="recipient@example.com"
 
   # Get the current usage of CPU and memory
   cpuUsage=$(top -bn1 | awk '/Cpu/ { print $2}')
@@ -20,7 +20,7 @@ email_address="steveettruth@gmail.com"
         [ $(echo "$cpuUsage >= $cpu_limit" | bc -l) -eq 1 ] && [ $(echo "$memUsage >= $mem_limit" | bc -l) -eq 1 ]; then
         #(( $(awk "BEGIN {print $cpuUsage > $cpu_limit && $memUsage > $mem_limit ? 1 : 0}") )); then
         subject="ALERT: High CPU Load Average on $(hostname) Server"
-        body="Hello Aman,\n\n"
+        body="Hello,\n\n"
         body+="This is an automated notification to inform you that the CPU load average and Memory Usage on $(hostname) has exceeded the both threshold.\n\n"
         body+="Current Load Average: ${cpuUsage}\n"
         body+="Threshold: ${cpu_limit}\n\n"
@@ -35,7 +35,7 @@ email_address="steveettruth@gmail.com"
  elif
           (( $(echo "$cpuUsage > $cpu_limit" | bc -l) )); then
         subject="ALERT: High CPU Load Average on $(hostname) Server"
-        body="Hello Aman,\n\n"
+        body="Hello,\n\n"
         body+="This is an automated notification to inform you that the CPU load average on $(hostname) has exceeded the threshold.\n\n"
         body+="Current Load Average: ${cpuUsage}\n"
         body+="Threshold: ${cpu_limit}\n\n"
@@ -49,7 +49,7 @@ email_address="steveettruth@gmail.com"
  elif
          (( $(echo "$memUsage > $mem_limit" | bc -l) )); then
         subject="ALERT: High Memory Usgae on $(hostname) Server"
-        body="Hello Aman,\n\n"
+        body="Hello,\n\n"
         body+="This is an automated notification to inform you that the Memory Usage on $(hostname) Server has exceeded the Memory limit.\n\n"
         body+="Current Memory usage: ${memUsage}\n"
         body+="Threshold: ${mem_limit}\n\n"
