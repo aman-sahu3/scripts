@@ -3,19 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>My Script Repository</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            margin: 0 0 20px;
-        }
-    </style>
 </head>
 <body>
     <h1>Welcome to My Script Repository</h1>
